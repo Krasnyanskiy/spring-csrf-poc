@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/security
+                           http://www.springframework.org/schema/security/spring-security.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <security:http security="none" pattern="/favicon.ico"/>
+    <security:http security="none" pattern="/img/**"/>
+    <security:http security="none" pattern="/css/**"/>
+
+    <security:http auto-config="true" use-expressions="true">
+        <security:access-denied-handler
+                error-page="/login"/>
+        <security:intercept-url
+                pattern="/j_spring_security_check" access="isAnonymous()"/>
+        <security:intercept-url
+                pattern="/login" access="isAnonymous()"/>
+        <security:intercept-url
+                pattern="/**" access="hasRole('ROLE_USER')"/>
+
+        <!--
+        <security:headers>
+            <security:cache-control/>
+            <security:content-type-options/>
+            <security:hsts/>
+            <security:frame-options/>
+            <security:xss-protection/>
+        </security:headers>
+        -->
+
+
+        <!--
+                login-processing-url='/j_spring_security_check'
+                default-target-url="/index"
+        -->
+
+        <security:form-login
+                login-page='/login'
+                authentication-failure-url="/login?error=true"/>
+
+        <security:logout
+                invalidate-session="true"
+                logout-success-url="/login?logout=true"
+                logout-url="/j_spring_security_logout"/>
+
+        <security:remember-me/>
+
+        <security:csrf
+                disabled="false"/>
+
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user
+                        name="bob"
+                        password="pass"
+                        authorities="ROLE_USER_2"/>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+</beans>
