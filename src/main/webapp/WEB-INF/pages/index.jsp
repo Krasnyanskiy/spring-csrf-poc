@@ -6,20 +6,12 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <style>
-        .btn-outline {
-            color: #50CB87;
-            background-color: transparent;
-            border-color: #FFFFFF;
-        }
-    </style>
 </head>
 <body>
 
 <c:url value="/j_spring_security_logout" var="logoutUrl"/>
 
-<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav"
-        role="banner">
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
     <div class="container">
         <div class="navbar-header">
             <a href="<c:url value="/"/>" class="navbar-brand">CSRF Demo</a>
@@ -36,14 +28,6 @@
         </nav>
     </div>
 </header>
-
-
-<div class="container bs-docs-container">
-    <div class="row">
-        <main class="col-md-12" role="main">
-        </main>
-    </div>
-</div>
 
 </body>
 </html>

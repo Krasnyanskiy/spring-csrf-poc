@@ -42,6 +42,7 @@
 
         <security:form-login
                 login-page='/login'
+                default-target-url="/index"
                 authentication-failure-url="/login?error=true"/>
 
         <security:logout
