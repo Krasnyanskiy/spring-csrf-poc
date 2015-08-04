@@ -1,33 +1,53 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSRF Demo</title>
+    <link href="<c:url value="/static/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/static/css/starter-template.css"/>" rel="stylesheet">
 </head>
 <body>
-
-<c:url value="/j_spring_security_logout" var="logoutUrl"/>
-
-<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a href="<c:url value="/"/>" class="navbar-brand">CSRF Demo</a>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="<c:url value="/"/>" class="navbar-brand">CSRF Demo</a>
+                </li>
+                <li>
+                    <a href="<c:url value="/activity/updatePage"/>">
+                        <span class="glyphicon glyphicon-eye-open"
+                              aria-hidden="true"></span></a>
+                </li>
+            </ul>
         </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            <ul class="nav navbar-nav navbar-right">
+        <div id="navbar" class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <c:url value="/j_spring_security_logout" var="logoutUrl"/>
+                <li>
+                    <div class="counter">Activity Count <span class="badge">${totalActivityCount}</span></div>
+                </li>
                 <li>
                     <form action="${logoutUrl}" method="post">
-                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Logout"/>
+                        <input class="btn btn-success btn-block" type="submit" value="Logout"/>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     </form>
                 </li>
             </ul>
-        </nav>
+        </div>
     </div>
-</header>
+</nav>
 
+<div class="container">
+    <div class="starter-template">
+        <h1>
+            <a href="<c:url value="/activity"/>">Change very important data!</a>
+        </h1>
+    </div>
+</div>
 </body>
+<script src="<c:url value="/static/js/jquery.min.js"/>"></script>
+<script src="<c:url value="/static/js/bootstrap.min.js"/>"></script>
 </html>

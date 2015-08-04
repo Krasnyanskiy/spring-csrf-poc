@@ -10,7 +10,9 @@
                            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <mvc:annotation-driven/>
-    <context:component-scan base-package="ua.alex.csrf.poc.web"/>
+    <context:component-scan base-package="ua.alex.csrf.poc"/>
+
+    <mvc:resources mapping="/static/**" location="/static/" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
