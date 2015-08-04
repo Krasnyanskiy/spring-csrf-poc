@@ -4,7 +4,7 @@
 
 Here are the [links](https://gist.github.com/Krasnyanskiy/51adf0d9985381acbaed) to read ant try.
 
-### How to make one-click attack
+### How to make a one-click attack
 
 You can disable CSRF support via changing a flag in Spring configuration.
 
