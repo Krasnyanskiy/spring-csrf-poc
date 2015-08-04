@@ -1,0 +1,28 @@
+body {
+    padding-top: 50px;
+}
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+.btn-block {
+    margin-top: 14px !important;
+}
+.navbar-brand {
+    margin-top: 5px !important;
+}
+.navbar-inverse {
+    background-color: #3A857A;
+    border-color: #FFFFFF !important;
+}
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF !important;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #FFFFFF !important;
+}
+.counter {
+    margin-top: 20px !important;
+    padding-left: 15px !important;
+    color: #FFFFFF;
+}
