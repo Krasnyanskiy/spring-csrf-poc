@@ -5,12 +5,12 @@ import java.security.Principal;
 /**
  * @author Alexander Krasnyanskiy
  */
-public class MaliciousUserActivity {
+public class UserActivity {
 
     private String actionDescription;
     private Principal principal;
 
-    public MaliciousUserActivity(String actionDescription, Principal principal) {
+    public UserActivity(String actionDescription, Principal principal) {
         this.actionDescription = actionDescription;
         this.principal = principal;
     }
